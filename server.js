@@ -1,27 +1,30 @@
 var express = require('express');
-var override = require('method-override');
-var bodyParser = require('body-parser');
-var connection = require('./config/connection');
 
-var exphbs = require('express-handlebars');
+
 
 
 var app = express();
 
-app.use(express.static(process.cwd() + '/public'));
+var override = require('method-override');
 
+app.use(express.static(process.cwd() + '/public'));
+//Override
 app.use(override('_method'));
+
+//handelbars
+var exphbs = require('express-handlebars');
 
 app.engine('handlebars', exphbs({
   defaultLayout: 'main'
 }));
 app.set('view engine', 'handlebars');
 
-
+//BodyParser
+var bodyParser = require('body-parser');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
-  extended: true
+  extended: false
 }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({
@@ -29,65 +32,22 @@ app.use(bodyParser.json({
 }));
 
 
-connection.connect(function (err) {
-  if (err) {
-    console.error('error connecting: ' + err.stack);
-    return;
-  };
-
-  console.log('connected as id ' + connection.threadId);
-
-});
+var applicationController = require('./controllers/application_controller');
 
 
-app.get('/', function (req, res) {
-  
-  connection.query('ALTER TABLE burgers AUTO_INCREMENT = 1',function(err,data){});
+app.use('/',applicationController);
 
-  connection.query('SELECT * FROM burgers;', function (err, data) {
-
-    if (err) throw err;
-
-    var obj = [];
-
-    data.forEach(function (value) {
-
-      obj.push(value);
+// var burgers1 = require("./models")["burgers1"];
+// /*{force:true} Drops the table and re-adds it. It deletes all the data*/
+// burgers1.sync()
+//
+// .then(function () {
+//
+// });
 
 
-    });
-
-    console.log(obj[0].devoured);
-    res.render('index', {
-      hamburgers: obj
-    });
-
-  });
-});
 
 
-app.post('/create', function (req, res) {
-  
-    connection.query('INSERT INTO burgers (burger_name,devoured) VALUES (?,0)', [req.body.burger], function (err, data) {
-
-      if (err) throw err;
-
-      //      req.body.devoured = 0;
-
-      console.log('Im in create');
-      console.log(req.body.burger);
-
-      res.redirect('/');
-    });
-});
-
-
-app.put('/update', function (req, res) {
-  connection.query('UPDATE burgers SET devoured = 1 WHERE id = ?',[req.body.id], function (err, result) {
-    if (err) throw err;
-    res.redirect('/');
-  });
-});
 
 
 var PORT = process.env.PORT || 3001;
