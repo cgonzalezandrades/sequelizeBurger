@@ -37,13 +37,13 @@ var applicationController = require('./controllers/application_controller');
 
 app.use('/',applicationController);
 
-// var burgers1 = require("./models")["burgers1"];
-// /*{force:true} Drops the table and re-adds it. It deletes all the data*/
-// burgers1.sync()
-//
-// .then(function () {
-//
-// });
+var burgers1 = require("./models")["burgers1"];
+/*{force:true} Drops the table and re-adds it. It deletes all the data*/
+burgers1.sync()
+
+.then(function () {
+
+});
 
 
 
