@@ -1,122 +1,149 @@
-* {
-  margin: 0;
-}
+
+@import url('https://fonts.googleapis.com/css?family=Bungee+Shade');
+@import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah');
+
 html, body {
-  height: 100%;
+    height: 100%;
+    margin: 0;
 }
 
-#title{
+body{
+    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0)), url('/img/foodBackground.png');
+    background-position: center;
+    /*background-repeat: no-repeat;*/
+    background-attachment: fixed;
+
+
+}
+
+.author{
+text-align: center;
+}
+
+
+#columns-title {
     text-align: center;
-  background-color: #efefef;
-/*  background-color: #5cb85c;*/
+    color: white;
+    font-family: 'Gloria Hallelujah', cursive;
 }
 
-#burger-list{
-  border-style: solid;
-  background-color: aqua;
-  margin-top: 1%;
+#columns-title h4{
+
+    color: white;
+
 }
 
-#eaten-list{
-  border-style: solid;
-  background-color: ;
-  margin-top: 1%;
+.burgers-form {
+    margin-top: 5%;
 }
 
-
-.picture-column{
-  text-align: center;
-/*  background-color: #d65454;*/
-  border-radius: 10px;
-  margin-top: 1%;
-  
+#burgerButton {
+    margin-top: 5%;
 }
 
-img{
-  width: 200px;
-  height: 200px;
+#burger-list {
+    border-style: solid;
+    margin-top: 1%;
+    font-family: 'Gloria Hallelujah', cursive;
+    color: white;
 }
 
 
-#columns-title{
-  text-align: center;
-  margin-bottom: 0;
-  margin-top: 0;
+
+.burgerme-button {
+    background-color: #ffa544;
+    color: white;
 }
 
-.burgers-form{
-  margin-top: 5%;
+.burgerme-button:hover {
+    background-color: #5cb85c;
+    color: white;
 }
 
-#submit-burger{
-  text-align: center;
-  margin-bottom: 0;
-  margin-top: 0;
+.eatme-button {
+    background-color: #5cb85c;
+    color: white;
 }
 
-#burgerButton{
-  margin-top: 5%;
+.eatme-button:hover {
+    background-color: #d65454;
+    color: white;
+
 }
 
-.page-wrap {
-  min-height: 100%;
-  /* equal to footer height */
-/*  margin-bottom: -0px; */
-}
-/*
-.page-wrap:after {
-  content: "";
-  display: block;
-}
-*/
-#page-title{
-  color: #333;
+#eaten-list {
+    border-style: solid;
+    background-color:;
+    margin-top: 1%;
+    font-family: 'Gloria Hallelujah', cursive;
+    color: white;
 }
 
-#page-title:hover{
-  text-decoration: none;
-  color: #333;
+footer{
+background-color: #5cb85c;
+    margin-top: 0%;
+    height: 250px;
 }
 
-.site-footer, .page-wrap:after {
-  height: 100px; 
-}
-.site-footer {
-  background: #efefef;
+.hamburger-banner{
+height: 400px;
 }
 
-.site-footer h4{
-  margin-top: 3%;
-  margin-left: 5%;
+#page-title:hover {
+    text-decoration: none;
+    color: #333;
+}
+
+#submit-burger {
+    text-align: center;
+    color: white;
+
 }
 
 
-#yellow-line{
-border-color: 
-#5cb85c;
-border-width: 9px;
+#title {
+    text-align: center;
+    font-family: 'Bungee Shade', cursive;
+    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0)), url("/img/hamburger-515389.jpg");
+    background-position: center;
+    height: 200px;
+
 }
 
-.eatme-button{
- background-color: 
-#5cb85c; 
-  color: white;
+#title a{
+ text-decoration: none;
 }
 
-.eatme-button:hover{
-  background-color: #d65454;
-  color: white;
+#title h1{
+color: white;
 }
 
-.burgerme-button{
-   background-color: 
-#ffa544; 
-  color: white;
+#red-line {
+    border-color: rgba(215, 44, 44, 0.5);
+    border-width: 2px;
 }
 
-.burgerme-button:hover{
-   background-color: 
-#5cb85c; 
-  color: white;
+
+.row{
+margin-left: 0;
+margin-right: 0
 }
 
+
+
+
+/*--------------------------Sticky Footer--------------------*/
+
+.wrapper {
+
+
+    min-height: 100%;
+
+    /* Equal to height of footer */
+    /* But also accounting for potential margin-bottom of last child */
+    margin-bottom: -50px;
+}
+
+.footer,
+.push {
+    /*height: 50px;*/
