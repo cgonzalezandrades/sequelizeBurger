@@ -10,7 +10,6 @@ html, body {
 body{
     background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0)), url('/img/foodBackground.png');
     background-position: center;
-    /*background-repeat: no-repeat;*/
     background-attachment: fixed;
 
 
@@ -82,12 +81,9 @@ text-align: center;
 footer{
 background-color: #5cb85c;
     margin-top: 0%;
-    height: 250px;
+    height: 230px;
 }
 
-.hamburger-banner{
-height: 400px;
-}
 
 #page-title:hover {
     text-decoration: none;
@@ -143,7 +139,3 @@ margin-right: 0
     /* But also accounting for potential margin-bottom of last child */
     margin-bottom: -50px;
 }
-
-.footer,
-.push {
-    /*height: 50px;*/
